@@ -3,7 +3,7 @@ import './global.css'
 import { Header } from "./components/Header"
 import styles from './App.module.css'
 import { SideBar } from './components/Sidebar'
-import { Post } from './components/Post'
+import { Content, Post } from './components/Post'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,7 +12,18 @@ function App() {
   // publishedAt: Date
   //content: String
 
-  const posts = [
+  interface Post {
+    id: number;
+    author: {
+      avatarUrl: string,
+      name: string,
+      role: string,
+    },
+    content: Content[],
+    publishedAt: Date;
+  }
+
+  const posts: Post[] = [
     {
       id: 1,
       author: {
